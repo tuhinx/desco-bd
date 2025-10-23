@@ -258,14 +258,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // Download button click tracking
 document.querySelectorAll('.download-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-        // Track download attempt
-        console.log('Download button clicked:', btn.classList.contains('android-btn') ? 'Android' : 'iOS');
-        
         // Allow the download to proceed - don't prevent default
         // The app-config.js will handle the actual download
-        
-        // In a real implementation, you would redirect to the actual app store
-        // window.open('https://play.google.com/store/apps/details?id=com.desco.bd', '_blank');
     });
 });
 
@@ -353,11 +347,10 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
             .then(registration => {
-                console.log('SW registered: ', registration);
+                // Service worker registered successfully
             })
             .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-                // This is not critical - the website works without service worker
+                // Service worker registration failed - not critical
             });
     });
 }

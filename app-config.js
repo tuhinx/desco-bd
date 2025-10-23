@@ -42,11 +42,8 @@ async function loadVersion() {
         APP_CONFIG.releaseDate = versionData.releaseDate || new Date().toISOString().split('T')[0];
         APP_CONFIG.changelog = versionData.changelog || ['Initial release'];
         
-        console.log(`✅ Loaded version: ${APP_CONFIG.version} (Build: ${APP_CONFIG.build})`);
         return true;
     } catch (error) {
-        console.error('❌ Could not load version.json:', error.message);
-        console.error('Please make sure version.json exists and contains a valid version number.');
         return false;
     }
 }
@@ -69,7 +66,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         const downloadBtn = document.getElementById('download-btn');
         if (downloadBtn) {
             downloadBtn.href = APP_CONFIG.latestReleaseUrl;
-            console.log('Using fallback download URL:', downloadBtn.href);
         }
         return;
     }
@@ -87,15 +83,11 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (downloadBtn) {
         downloadBtn.href = APP_CONFIG.downloadUrl;
         downloadBtn.setAttribute('data-version', APP_CONFIG.version);
-        console.log('Download URL set to:', APP_CONFIG.downloadUrl);
     }
     
     // Add click tracking and direct download
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
-            console.log(`Downloading DESCO BD v${APP_CONFIG.version} (Build: ${APP_CONFIG.build})`);
-            console.log('Download URL:', downloadBtn.href);
-            
             // Ensure download proceeds by opening the URL directly
             window.open(downloadBtn.href, '_blank');
         });
