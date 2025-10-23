@@ -258,14 +258,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Download button click tracking
 document.querySelectorAll('.download-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        
         // Track download attempt
         console.log('Download button clicked:', btn.classList.contains('android-btn') ? 'Android' : 'iOS');
         
-        // Show notification
-        const platform = btn.classList.contains('android-btn') ? 'Android' : 'iOS';
-        showNotification(`${platform} download coming soon! Stay tuned for updates.`, 'info');
+        // Allow the download to proceed - don't prevent default
+        // The app-config.js will handle the actual download
         
         // In a real implementation, you would redirect to the actual app store
         // window.open('https://play.google.com/store/apps/details?id=com.desco.bd', '_blank');

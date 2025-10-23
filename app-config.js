@@ -94,9 +94,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (downloadBtn) {
         downloadBtn.addEventListener('click', function(e) {
             console.log(`Downloading DESCO BD v${APP_CONFIG.version} (Build: ${APP_CONFIG.build})`);
-            
-            // Allow the default download behavior to proceed
             console.log('Download URL:', downloadBtn.href);
+            
+            // Ensure download proceeds by opening the URL directly
+            window.open(downloadBtn.href, '_blank');
         });
     }
 });
