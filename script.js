@@ -360,6 +360,7 @@ if ('serviceWorker' in navigator) {
             })
             .catch(registrationError => {
                 console.log('SW registration failed: ', registrationError);
+                // This is not critical - the website works without service worker
             });
     });
 }

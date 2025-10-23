@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "build": "1",
+    "releaseDate": "2025-10-22",
+    "changelog": [
+        "Initial release",
+        "Basic DESCO BD functionality",
+        "User authentication",
+        "Bill management features"
+    ]
+}
